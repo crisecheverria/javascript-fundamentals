@@ -30,3 +30,20 @@ console.log('Global Scope: ', a, b, c);
 
 // Fuente: https://www.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757246#overview
 // Fuente: https://towardsdatascience.com/still-confused-in-js-scopes-f7dae62c16ee
+
+//  ======= CHALLENGE =========
+
+const a = 4;
+const foo = () => {
+  let z = (y = 0);
+  var a = 9;
+  z++;
+  y += 1;
+  return a;
+};
+
+foo();
+
+console.log(a);
+console.log(y);
+console.log(z);

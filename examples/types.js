@@ -15,10 +15,13 @@ Valores objetos o Reference Values
 - Function
  */
 
-let x = 10;
-let y = x;
+var x = 10; // Number
+// Box X => 10
+var y = x; // value of y = 10
+// Box Y => 10
 
 x = 20;
+// Box X => 20
 console.log(x);
 console.log(y);
 

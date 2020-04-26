@@ -14,9 +14,9 @@ this: determination
 const person = {
   name: 'Cristian',
   age: 34,
-  getName: function() {
+  getName: function () {
     console.log(this);
-  }
+  },
 };
 
 console.log(person.getName());
@@ -24,13 +24,13 @@ console.log(person.getName());
 const car = {
   model: ['rav4', 'corolla', '4runner'],
   brand: 'toyota',
-  printModel: function() {
+  printModel: function () {
     console.log(
-      this.model.forEach(function(m) {
+      this.model.forEach(function (m) {
         console.log(this.brand, m);
       }, this)
     );
-  }
+  },
 };
 
 console.log(car.printModel());
@@ -58,6 +58,26 @@ var obj = { bar: 'bar' };
 test = test.bind(obj, 'baz');
 test('bam');
 
+// arrow functions and 'THIS'
+
+function printLemurName() {
+  console.log('nothing here but us globals');
+}
+
+const lemurLand = {
+  lemurs: ['Dave', 'John', 'Alice', 'Tanya', 'Ramon'],
+  printLemurName: function (lemur) {
+    console.log('This lemus is called ' + lemur);
+  },
+  printAllLemurNames: function () {
+    this.lemurs.forEach(function (lemur) {
+      this.printLemurName(lemur);
+    });
+  },
+};
+
+console.log(lemurLand.printAllLemurNames());
+
 /* 'new' keyboard
 // new es una llamada Constructor y no es similar al 'new' de lenguajes que usan Clases, JS realmente no tiene clases, sólamente las emula. 'new' retorna un objeto 
 */
@@ -79,10 +99,10 @@ console.log(name2);
 3- Retorna 'this' que en este caso es el objeto creado con sus propiedades.
 */
 
-const name2 = new String('John');
-console.log(name2);
+const name5 = new String('John');
+console.log(name5);
 
-if (name2 == 'John') {
+if (name5 == 'John') {
   console.log('yes');
 } else {
   console.log('No');
