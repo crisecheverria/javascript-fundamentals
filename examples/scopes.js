@@ -1,4 +1,6 @@
 // Scope Global
+// var -> function
+// let/const -> block
 var a = 4;
 let b = 6;
 const c = 8;

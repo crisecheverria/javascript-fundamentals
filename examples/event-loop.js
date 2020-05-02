@@ -11,7 +11,7 @@ console.log('third');
 
 /*
 El orden es:
-1- Stack
+1- CallStack
 2- Web APIs
 3- Event Loop
 

@@ -19,7 +19,109 @@ const person = {
   },
 };
 
-console.log(person.getName());
+person.getName();
+// Si llamamos this via el metodo de un objeto nos devuelve el objeto
+const getName = person.getName;
+getName();
+// Caso contrario, si llamamos this desde una función aislada del objeto devuelve el Window object o 'undefined' en 'strict mode'
+
+// Binding 'this'
+const getName = person.getName.bind(person);
+getName();
+
+// Arrow Functions && 'this'
+
+const pokemon = {
+  name: 'Cristian',
+  age: 34,
+  fight() {
+    setTimeout(function () {
+      console.log(this);
+    }, 1000);
+  },
+};
+
+// Solucion: Usar Arrow Function
+
+const pokemonGo = {
+  name: 'Cristian',
+  age: 34,
+  fight() {
+    setTimeout(() => {
+      console.log(this);
+    }, 1000);
+  },
+};
+// ------------------------------
+
+// Classes
+
+const pokemon = {
+  name: 'Cristian',
+  fight() {
+    console.log('fight');
+  },
+};
+
+const pokemon2 = {
+  name: 'Pablo',
+  fight() {
+    console.log('fight');
+  },
+};
+
+// Código duplicado
+// Solucion crear una clase
+
+class Pokemon {
+  constructor(name) {
+    this.name = name;
+  }
+  fight() {
+    console.log('fight');
+  }
+}
+
+const pokemon = new Pokemon('Cris');
+
+// Inheritance
+
+class Pokemon {
+  constructor(name) {
+    this.name = name;
+  }
+  fight() {
+    console.log('fight');
+  }
+}
+
+class Instructor extends Pokemon {
+  training() {
+    console.log('training');
+  }
+}
+
+const instructor = new Instructor('Jhon');
+instructor.fight();
+
+// Hereda el mismo contructor de la clase anterior
+
+// Si deseamos agregar nueva funcionalidad y agregar un constructor
+
+class Instructor extends Pokemon {
+  constructor(name, level) {
+    super(name);
+    this.level = level;
+  }
+
+  training() {
+    console.log('training');
+  }
+}
+
+const instructor = new Instructor('Jhon', 'Ninja');
+
+// --------------------------
 
 const car = {
   model: ['rav4', 'corolla', '4runner'],

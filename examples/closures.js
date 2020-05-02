@@ -17,7 +17,7 @@ inicia();
 
 // ----------------------------------------------------
 function creaSumador(x) {
-  return function(y) {
+  return function (y) {
     return x + y;
   };
 }
@@ -69,21 +69,21 @@ console.log(suma10(2)); // muestra 12
 
 // ============== Emulando métodos privados con Closure ==============
 // Conocido como Factory Function ó Constructor Function.
-var Counter = (function() {
+var Counter = (function () {
   var privateCounter = 0;
   function changeBy(val) {
     privateCounter += val;
   }
   return {
-    increment: function() {
+    increment: function () {
       changeBy(1);
     },
-    decrement: function() {
+    decrement: function () {
       changeBy(-1);
     },
-    value: function() {
+    value: function () {
       return privateCounter;
-    }
+    },
   };
 })();
 

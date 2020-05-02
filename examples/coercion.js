@@ -25,3 +25,11 @@ JS will cast the values to be of the same type — this time numbers.
 '42' - 7; // 35
 '42' - 0; // 42
 '42' - '9'; // 33
+
+// Excercise
+
+function isLandscape(width, heigth) {
+  return width > heigth;
+}
+
+console.log(isLandscape(800, 600));
