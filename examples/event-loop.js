@@ -18,3 +18,21 @@ El orden es:
 El event loop espera a que el Stack este
 libre y luego inyecta el codigo en el stack
  */
+
+function baz() {
+  throw 'Error2';
+}
+
+function bar() {
+  baz();
+}
+
+function foo() {
+  bar();
+}
+
+function main() {
+  foo();
+}
+
+main();
