@@ -1,8 +1,8 @@
-## Javascript Fundamentos Entrevista de Trabajo
+## Javascript Fundamentals
 
-En este repositorio encontrarás un resúmen del workshop llevado a cabo el 30/Marzo del 2020.
+Im creating a listing of Core Subjects about JavaScript and some exercises for preparation for interviews
 
-Algunos temas:
+Few of the topics include:
 
 - Type
 - Scope
