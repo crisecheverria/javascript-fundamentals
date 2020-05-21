@@ -1,3 +1,7 @@
+/*
+There are three primary methods (push, pop, peek) in a stack and a few additional methods (isEmpty, get length) you may add to help with different tasks
+ */
+
 class Stack {
   constructor() {
     this.stack = [];
