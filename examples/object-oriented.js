@@ -1,7 +1,6 @@
 /*
-'this' keyword. El scope de 'this' depende del origen del cual
-la función ha sido llamada. (Kyle Simpson)
-Fuent: https://frontendmasters.com/courses/javascript-foundations/binding-confusion/
+'this' keyword. The scope of 'this' depends from the context where is called. (Kyle Simpson)
+Source: https://frontendmasters.com/courses/javascript-foundations/binding-confusion/
  */
 
 /*
@@ -20,14 +19,56 @@ const person = {
 };
 
 person.getName();
-// Si llamamos this via el metodo de un objeto nos devuelve el objeto
 const getName = person.getName;
 getName();
-// Caso contrario, si llamamos this desde una función aislada del objeto devuelve el Window object o 'undefined' en 'strict mode'
 
 // Binding 'this'
 const getName = person.getName.bind(person);
 getName();
+
+// Another example
+var myObject = {
+  name: 'Bruce Object',
+  me: function () {
+    this.name = 'Joker Object';
+    console.log(this);
+  },
+};
+
+myObject.me(); // { name: 'Joker Object', me: [Function: me] }
+
+// Solution
+
+const person = {
+  name: 'Bruce',
+  lastname: 'Wayne',
+  fullname: function () {
+    return this.name + ' ' + this.lastname;
+  },
+};
+
+const print = function (greet, adj) {
+  console.log(greet, this.fullname(), 'you are', adj);
+};
+
+print('hello', 'special');
+
+// Solution: Using bind()
+const print = function (greet, adj) {
+  console.log(greet, this.fullname(), 'you are', adj);
+}.bind(person);
+
+print('hello', 'special');
+
+// Solution: Using call()
+const print = function (greet, adj) {
+  console.log(greet, this.fullname(), 'you are', adj);
+};
+
+print.call(person, 'hello', 'special');
+
+// Solution: Using apply()
+print.apply(person, ['hello', 'special']);
 
 // Arrow Functions && 'this'
 
@@ -70,8 +111,7 @@ const pokemon2 = {
   },
 };
 
-// Código duplicado
-// Solucion crear una clase
+// Avoid Code Duplication & Create a Class instead
 
 class Pokemon {
   constructor(name) {
@@ -104,9 +144,9 @@ class Instructor extends Pokemon {
 const instructor = new Instructor('Jhon');
 instructor.fight();
 
-// Hereda el mismo contructor de la clase anterior
+// Inherence the same constructor from previews class
 
-// Si deseamos agregar nueva funcionalidad y agregar un constructor
+// If we want to add a new constructor we call super()
 
 class Instructor extends Pokemon {
   constructor(name, level) {
@@ -115,11 +155,12 @@ class Instructor extends Pokemon {
   }
 
   training() {
-    console.log('training');
+    console.log('Training with ' + this.name + ' Who is a ' + this.level);
   }
 }
 
 const instructor = new Instructor('Jhon', 'Ninja');
+instructor.training();
 
 // --------------------------
 
@@ -210,5 +251,5 @@ if (name5 == 'John') {
   console.log('No');
 }
 
-// == Solamente compara el Valor
-// === Compara el Tipo de variable
+// == Only compares values
+// === Compares typeof

@@ -28,16 +28,16 @@ var suma10 = creaSumador(10);
 console.log(suma5(2)); // muestra 7
 console.log(suma10(2)); // muestra 12
 
-// ========= Problemas solucionables con Closure =============
+// ========= Solutions using Closure =============
 
-// No estamos obteniendo un nuevo 'i' en cada iteración.
+// We arn't getting a new 'i' in every iteration.
 // for (var i = 1; i <= 5; i++) {
 //   setTimeout(() => {
 //     console.log(`i: ${i}`);
 //   }, i * 1000);
 // }
 
-// Solucion 1: Block Scoping
+// Solution 1: Block Scoping
 // for (var i = 1; i <= 5; i++) {
 //   let j = i;
 //   setTimeout(() => {
@@ -45,7 +45,7 @@ console.log(suma10(2)); // muestra 12
 //   }, i * 1000);
 // }
 
-// Solucion 2: Block Scoping
+// Solution 2: Block Scoping using Let
 // for (let i = 1; i <= 5; i++) {
 //   setTimeout(() => {
 //     console.log(`i: ${i}`);
@@ -64,11 +64,11 @@ console.log(suma10(2)); // muestra 12
 
 // ==================================================================
 
-// Ejemplo del DOM => https://jsfiddle.net/v7gjv
-// Solución => https://jsfiddle.net/v7gjv/1
+// Using the DOM => https://jsfiddle.net/v7gjv
+// Solution => https://jsfiddle.net/v7gjv/1
 
-// ============== Emulando métodos privados con Closure ==============
-// Conocido como Factory Function ó Constructor Function.
+// ============== Private Methods with Closure ==============
+// Factory Function
 var Counter = (function () {
   var privateCounter = 0;
   function changeBy(val) {

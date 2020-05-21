@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>All animals</h1>
+    <section class="all-animals">
+      <div class="animal">
+        <h2>Dog</h2>
+        <p>mammal: <span class="mammal-value">true</span></p>
+      </div>
+      <div class="animal">
+        <h2>Snake</h2>
+        <p>mammal: <span class="mammal-value">false</span></p>
+      </div>
+      <div class="animal">
+        <h2>Cheetah</h2>
+        <p>mammal: <span class="mammal-value">true</span></p>
+      </div>
+      <div class="animal">
+        <h2>Turtle</h2>
+        <p>mammal: <span class="mammal-value">false</span></p>
+      </div>
+      <div class="animal">
+        <h2>Frog</h2>
+        <p>mammal: <span class="mammal-value">false</span></p>
+      </div>
+      <div class="animal">
+        <h2>Cat</h2>
+        <p>mammal: <span class="mammal-value">true</span></p>
+      </div>
+      <div class="animal">
+        <h2>Badger</h2>
+        <p>mammal: <span class="mammal-value">true</span></p>
+      </div>
+    </section>
+    <h1>Mammals</h1>
+    <section id="only-mammals"></section>
+
+    <script>
+      const animals = Array.from(document.querySelectorAll('.mammal-value'));
+      const mammals = animals.filter((animal) => animal.innerHTML === 'true');
+      const mammalsNode = document.querySelector('#only-mammals');
+      mammals.forEach((mammal) => {
+        let grandParent = mammal.parentElement.parentElement;
+        mammalsNode.appendChild(grandParent);
+      });
+    </script>
+  </body>
+</html>

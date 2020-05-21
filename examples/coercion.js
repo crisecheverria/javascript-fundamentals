@@ -4,14 +4,14 @@ var y = 9;
 console.log(x == y);
 console.log(x === y);
 
-// Comparacion por valor x == Y pero antes uso de Coercion
-// Comparacion por valor y tipo x === y
-
 /*
 Simply:
 == is comparison which allows coercion, 
 === is comparison without coercion.
 */
+
+String(123); // explicit
+123 + ''; // implicit
 
 // every “+” expression that involves a string will result in a string.
 14 + ''; // "14"
@@ -32,4 +32,4 @@ function isLandscape(width, heigth) {
   return width > heigth;
 }
 
-console.log(isLandscape(800, 600));
+isLandscape(800, 600);

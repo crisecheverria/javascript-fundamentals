@@ -1,3 +1,8 @@
+// Prototype inheritance is object inheritance in JS and one way of inheritance in JS
+// The other way is Classes Inheritance
+
+// When you think about Prototype think about a Parent Object
+
 // example1
 function Workshop(teacher) {
   this.teacher = teacher;
@@ -8,7 +13,9 @@ Workshop.prototype.ask = function (question) {
 };
 
 var deepJS = new Workshop('Cris');
+
 var reactJS = new Workshop('John');
+reactJS.ask('Hey');
 // example2
 var Person = function (name) {
   this.name = name;
@@ -22,6 +29,7 @@ Person.prototype.greet = function () {
 };
 
 var person1 = new Person('Mary');
+person1.greet();
 
 var Employee = function (name, title) {
   Person.call(this, name);

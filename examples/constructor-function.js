@@ -18,3 +18,18 @@ function Person(firtsName, lastName, age) {
 
 const person2 = new Person('Juan', 'Lopez', 45);
 console.log(person2);
+
+// Enumate Properties in an object
+
+for (const key in person2) {
+  console.log(key, person2[key]);
+}
+
+// List all the properties
+const keys = Object.keys(person2);
+console.log(keys);
+
+// Check if a property exist
+if ('firstName' in person2) {
+  console.log('Person has a firstName property');
+}

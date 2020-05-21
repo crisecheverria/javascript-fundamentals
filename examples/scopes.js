@@ -30,8 +30,8 @@ for (var a = 0; a < 5; a++) {
 
 console.log('Global Scope: ', a, b, c);
 
-// Fuente: https://www.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757246#overview
-// Fuente: https://towardsdatascience.com/still-confused-in-js-scopes-f7dae62c16ee
+// Source: https://www.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757246#overview
+// Source: https://towardsdatascience.com/still-confused-in-js-scopes-f7dae62c16ee
 
 //  ======= CHALLENGE =========
 

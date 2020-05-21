@@ -1,26 +1,22 @@
-// Speed Limit = 70
-// 5 -> 1 point
+// Speed Limit = 70, return 'OK'
+// 5 -> 1 point, return Points: 1
 // Use of Math.floor
 // 12 points -> License Suspended
 
+checkSpeed(14);
 function checkSpeed(speed) {
-  if (typeof speed != 'number') {
-    return 'NaN';
-  }
-  const speedLimit = 70;
-  const kmPerPoints = 5;
-  if (speed < speedLimit + kmPerPoints) {
-    console.log('OK');
-    return;
-  }
+  let speedLimit = 70;
+  let kmPoints = 5;
 
-  let overLimit = speed - speedLimit;
-  const points = Math.floor(overLimit / kmPerPoints);
-  if (points >= 12) {
-    console.log('License Suspended');
+  if (speed < speedLimit + kmPoints) {
+    console.log('ok');
+    return;
   } else {
+    let points = Math.floor((speed - speedLimit) / kmPoints);
     console.log('Points: ' + points);
+
+    if (points >= 12) {
+      console.log('License Suspended');
+    }
   }
 }
-
-checkSpeed(13);

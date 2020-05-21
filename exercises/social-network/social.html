@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Network</title>
+  </head>
+  <body>
+    <style>
+      .person {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #000;
+        padding: 24px;
+        width: 300px;
+        margin: 0 auto 80px;
+      }
+
+      .person > img {
+        border-radius: 50%;
+      }
+    </style>
+    <div id="friends"></div>
+
+    <script>
+      async function getFriends() {
+        const response = await fetch('https://randomuser.me/api/?results=10');
+        const friends = await response.json();
+        const friendNodeWrapper = document.querySelector('#friends');
+
+        friends.results.forEach((friend) => {
+          let name = `${friend.name.first} ${friend.name.last}`;
+          let nameParagraph = document.createElement('p');
+          nameParagraph.textContent = name;
+
+          let picture = friend.picture.large;
+          let pictureTag = document.createElement('img');
+          pictureTag.src = picture;
+          pictureTag.alt = name;
+
+          let personWrapper = document.createElement('div');
+          personWrapper.classList.add('person');
+          personWrapper.appendChild(nameParagraph);
+          personWrapper.appendChild(pictureTag);
+
+          friendNodeWrapper.appendChild(personWrapper);
+        });
+      }
+
+      getFriends();
+    </script>
+  </body>
+</html>
