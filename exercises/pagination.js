@@ -19,7 +19,7 @@ let items = [
   ['p2', 1, 3],
   ['p3', 3, 3],
 ];
-fetchItemsToDisplay(items, 0, 0, 1, 1);
+fetchItemsToDisplay(items, 0, 0, 1, 0);
 
 function fetchItemsToDisplay(
   items,
@@ -29,7 +29,8 @@ function fetchItemsToDisplay(
   pageNumber
 ) {
   let result = [];
-  let lastIndex = pageNumber * itemsPerPage;
+  let pageNum = pageNumber === 0 ? 1 : pageNumber;
+  let lastIndex = pageNum * itemsPerPage;
   let startIndex = lastIndex - itemsPerPage;
   let currentPost = items.slice(startIndex, lastIndex);
 
